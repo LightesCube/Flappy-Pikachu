@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://n1xb0fj4uc00"]
+
+[ext_resource type="Script" path="res://Scenes/Scripts/bird.gd" id="1_omx3s"]
+[ext_resource type="Texture2D" uid="uid://mmgwgvc2sh18" path="res://Assets Flappy GD/pm25.fFLYING_OKINAWA.s.icon_.png.webp" id="3_kw7og"]
+[ext_resource type="Texture2D" uid="uid://daic67qtmoayj" path="res://Assets Flappy GD/pm25.fFLYING_02.s.icon_.png.webp" id="4_h1i0x"]
+[ext_resource type="Texture2D" uid="uid://1ecvtblblkk4" path="res://Assets Flappy GD/pm25.fFLYING_01.s.icon_-1.png.webp" id="4_jvub2"]
+[ext_resource type="Texture2D" uid="uid://b4hkqk3jpvmve" path="res://Assets Flappy GD/pm25.fFLYING_03.s.icon_.png" id="5_urc0n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n6pl8"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("4_jvub2")
+}, {
+"duration": 2.0,
+"texture": ExtResource("3_kw7og")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_h1i0x")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_urc0n")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_okhrv"]
+radius = 19.0
+height = 38.0
+
+[node name="Bird" type="CharacterBody2D"]
+script = ExtResource("1_omx3s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 15)
+scale = Vector2(0.770447, 0.745544)
+sprite_frames = SubResource("SpriteFrames_n6pl8")
+animation = &"flying"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 63)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_okhrv")
